@@ -1,0 +1,20 @@
+.connect {
+    display: flex;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.auto-height {
+    height: auto;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.center {
+    margin: 0 auto;
+    align-self: center;
+}
