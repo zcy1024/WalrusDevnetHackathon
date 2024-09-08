@@ -1,0 +1,2 @@
+# WalrusDevnetHackathon
+Walrus Devnet Hackathon
