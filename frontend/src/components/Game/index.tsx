@@ -1,9 +1,10 @@
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, useCallback } from "react"
 
 import "./index.css"
 
 import Bullet from "./Bullet"
 import Enemy, { EnemyGroupType } from "./Enemy"
+import Settlement from "./Settlement"
 
 export default function Game() {
     const playerRef = useRef<HTMLDivElement | null>(null)
@@ -30,7 +31,7 @@ export default function Game() {
         }
     }, [])
 
-    const movePlayer = (e: KeyboardEvent) => {
+    const movePlayer = useCallback((e: KeyboardEvent) => {
         let speed = 0.8
         const style = playerRef.current!.style
         if (e.key === "w" || e.key === "ArrowUp") {
@@ -46,23 +47,30 @@ export default function Game() {
             x: style.left.slice(0, -2),
             y: style.top.slice(0, -2)
         })
-    }
+    }, [])
 
     // store enemy
     const [enemyGroup, setEnemyGroup] = useState<EnemyGroupType | null>(null)
 
     // store score
     const [score, setScore] = useState<number>(0)
-
     const updateScore = (s: number) => {
         setScore(score + s)
+    }
+
+    // check gameover
+    const [gameOver, setGameOver] = useState<boolean>(false)
+    const updateGameOver = () => {
+        setGameOver(true)
+        document.removeEventListener("keydown", movePlayer, false)
     }
 
     return (
         <div>
             <div className="circle" style={{height: "6vh", width: "6vh", left: `${initPos.x}vw`, top: `${initPos.y}vh`}} ref={playerRef}></div>
-            { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"} enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} updateScore={updateScore} /> }
+            { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"} enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} updateScore={updateScore} updateGameOver={updateGameOver} /> }
             { ready && <Enemy enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} playerPos={initPos} />}
+            { gameOver && <Settlement /> }
         </div>
     )
 }

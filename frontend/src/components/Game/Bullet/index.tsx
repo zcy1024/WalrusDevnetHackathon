@@ -10,7 +10,8 @@ type Props = {
     top: string,
     enemyGroup: EnemyGroupType | null,
     setEnemyGroup: React.Dispatch<React.SetStateAction<EnemyGroupType | null>>,
-    updateScore: (s: number) => void
+    updateScore: (s: number) => void,
+    updateGameOver: () => void
 }
 
 type bulletItem = {
@@ -24,8 +25,9 @@ type bulletItem = {
 
 // bullets
 let bullets: bulletItem[] = []
+let clip = 100
 
-export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore }: Props) {
+export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore, updateGameOver }: Props) {
     const bulletRef = useRef<HTMLDivElement | null>(null)
 
     const sleep = (ms: number) => {
@@ -36,7 +38,7 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
     const [ready, setReady] = useState<boolean>(false)
 
     const refresh = async() => {
-        if (ready)
+        if (ready || clip <= 0)
             return
 
         setReady(true)
@@ -121,6 +123,9 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
 
         await sleep(100)
         setReady(false)
+        
+        if (--clip === 0)
+            updateGameOver()
     }
 
     useEffect(() => {
