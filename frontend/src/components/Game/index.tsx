@@ -51,10 +51,17 @@ export default function Game() {
     // store enemy
     const [enemyGroup, setEnemyGroup] = useState<EnemyGroupType | null>(null)
 
+    // store score
+    const [score, setScore] = useState<number>(0)
+
+    const updateScore = (s: number) => {
+        setScore(score + s)
+    }
+
     return (
         <div>
             <div className="circle" style={{height: "6vh", width: "6vh", left: `${initPos.x}vw`, top: `${initPos.y}vh`}} ref={playerRef}></div>
-            { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"}/> }
+            { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"} enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} updateScore={updateScore} /> }
             { ready && <Enemy enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} playerPos={initPos} />}
         </div>
     )

@@ -4,11 +4,12 @@ import "./index.css"
 
 import { checkCollision } from ".."
 
-type EnemyItem = {
+export type EnemyItem = {
     enemy: HTMLDivElement,
     pos_x: number,
     pos_y: number,
-    radius: number
+    radius: number,
+    score: number
 }
 
 export type EnemyGroupType = {
@@ -50,7 +51,8 @@ export default function Enemy({ enemyGroup, setEnemyGroup, playerPos }: Props) {
                     enemy: childNode,
                     pos_x,
                     pos_y,
-                    radius
+                    radius,
+                    score: Math.round(radius) * 10
                 }]
             })
         } else {
@@ -62,7 +64,8 @@ export default function Enemy({ enemyGroup, setEnemyGroup, playerPos }: Props) {
                         enemy: childNode,
                         pos_x,
                         pos_y,
-                        radius
+                        radius,
+                        score: Math.round(radius) * 10
                     }
                 ]
             })

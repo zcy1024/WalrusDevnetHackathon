@@ -2,9 +2,15 @@ import { useState, useEffect, useRef } from "react"
 
 import "./index.css"
 
+import { EnemyItem, EnemyGroupType } from "../Enemy"
+import { checkCollision } from ".."
+
 type Props = {
     left: string,
-    top: string
+    top: string,
+    enemyGroup: EnemyGroupType | null,
+    setEnemyGroup: React.Dispatch<React.SetStateAction<EnemyGroupType | null>>,
+    updateScore: (s: number) => void
 }
 
 type bulletItem = {
@@ -19,7 +25,7 @@ type bulletItem = {
 // bullets
 let bullets: bulletItem[] = []
 
-export default function Bullet({ left, top }: Props) {
+export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore }: Props) {
     const bulletRef = useRef<HTMLDivElement | null>(null)
 
     const sleep = (ms: number) => {
@@ -33,8 +39,8 @@ export default function Bullet({ left, top }: Props) {
         if (ready)
             return
 
-        await sleep(100)
         setReady(true)
+        await sleep(100)
 
         // shoot
         const childNode = document.createElement("div")
@@ -63,9 +69,54 @@ export default function Bullet({ left, top }: Props) {
             const x = Number(bullet.bullet.style.left.slice(0, -2))
             const y = Number(bullet.bullet.style.top.slice(0, -2))
             const inner = x >= 0 && x <= 100 && y >= 0 && y <= 100
-            if (!inner)
+            if (!inner) {
                 bulletRef.current?.removeChild(bullet.bullet)
-            return inner
+                return false
+            }
+
+            if (!enemyGroup)
+                return true
+
+            const hitEnemy = (enemy: EnemyItem) => {
+                const radius = Number(enemy.enemy.style.width.slice(0, -2)) - 1
+                if (radius < 0)
+                    return
+                if (radius >= 1) {
+                    enemy.enemy.style.width = radius.toString() + "vh"
+                    enemy.enemy.style.height = radius.toString() + "vh"
+                    setEnemyGroup({
+                        ...enemyGroup,
+                        enemyItems: enemyGroup.enemyItems.map(e => {
+                            if (e !== enemy)
+                                return e
+                            return {
+                                ...e,
+                                radius
+                            }
+                        })
+                    })
+                    return
+                }
+                setEnemyGroup({
+                    ...enemyGroup,
+                    enemyItems: enemyGroup.enemyItems.filter(e => e !== enemy)
+                })
+                try {
+                    updateScore(enemy.score)
+                    enemyGroup.enemyRef.current?.removeChild(enemy.enemy)
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+
+            const hit = enemyGroup.enemyItems.find(enemy => checkCollision(x, y, enemy.pos_x, enemy.pos_y, 2 + enemy.radius))
+            if (hit) {
+                bulletRef.current?.removeChild(bullet.bullet)
+                hitEnemy(hit)
+                return false
+            }
+
+            return true
         })
 
         await sleep(100)
