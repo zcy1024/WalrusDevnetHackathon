@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
@@ -14,7 +14,7 @@ const networks = {
 };
 
 createRoot(document.getElementById('root')!).render(
-    <StrictMode>
+    // <StrictMode>
         <QueryClientProvider client={queryClient}>
             <SuiClientProvider networks={networks} defaultNetwork="testnet">
                 <WalletProvider>
@@ -22,5 +22,5 @@ createRoot(document.getElementById('root')!).render(
                 </WalletProvider>
             </SuiClientProvider>
         </QueryClientProvider>
-    </StrictMode>,
+    // </StrictMode>,
 )

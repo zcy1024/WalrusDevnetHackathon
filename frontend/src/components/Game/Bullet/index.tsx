@@ -33,7 +33,7 @@ export default function Bullet({ left, top }: Props) {
         if (ready)
             return
 
-        await sleep(200)
+        await sleep(100)
         setReady(true)
 
         // shoot
@@ -57,7 +57,7 @@ export default function Bullet({ left, top }: Props) {
             cre_ms: new Date().getTime()
         })
 
-        await sleep(200)
+        await sleep(100)
 
         bullets = bullets.filter(bullet => {
             const x = Number(bullet.bullet.style.left.slice(0, -2))
@@ -68,7 +68,7 @@ export default function Bullet({ left, top }: Props) {
             return inner
         })
 
-        await sleep(200)
+        await sleep(100)
         setReady(false)
     }
 
@@ -84,9 +84,9 @@ export default function Bullet({ left, top }: Props) {
         const change = (v: number) => {
             v -= 0.5
             if (v >= 0)
-                v += 1
+                v += 1.5
             else
-                v -= 1
+                v -= 1.5
             return v
         }
 
