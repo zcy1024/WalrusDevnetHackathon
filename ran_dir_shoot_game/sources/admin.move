@@ -3,6 +3,8 @@ module ran_dir_shoot_game::admin {
     use sui::balance::{Self, Balance};
     use sui::package::{Self, Publisher};
 
+    use ran_dir_shoot_game::nft::mint;
+
     // ====== struct ======
 
     public struct ADMIN has drop {}
@@ -32,5 +34,9 @@ module ran_dir_shoot_game::admin {
         let all_balance = income.income.withdraw_all();
         // transfer it to publisher
         transfer::public_transfer(all_balance.into_coin(ctx), ctx.sender());
+    }
+
+    entry fun gift(_: &Publisher, owner: address, ctx: &mut TxContext) {
+        mint(owner, ctx);
     }
 }
