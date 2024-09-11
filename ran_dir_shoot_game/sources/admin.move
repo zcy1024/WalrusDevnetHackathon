@@ -1,9 +1,14 @@
 module ran_dir_shoot_game::admin {
     use sui::sui::SUI;
+    use sui::coin::Coin;
     use sui::balance::{Self, Balance};
     use sui::package::{Self, Publisher};
 
     use ran_dir_shoot_game::nft::mint;
+
+    // ====== constant ======
+
+    const NeedBalance: u64 = 666666;
 
     // ====== struct ======
 
@@ -40,7 +45,16 @@ module ran_dir_shoot_game::admin {
         mint(owner, ctx);
     }
 
-    public fun join(income: &mut Income, need: Balance<SUI>) {
+    #[allow(lint(self_transfer))]
+    public fun join(income: &mut Income, mut pay: Coin<SUI>, ctx: &mut TxContext) {
+        let need = pay.split(NeedBalance, ctx).into_balance();
         income.income.join(need);
+
+        // deal with the remain pay
+        if (pay.value() == 0) {
+            pay.destroy_zero();
+        } else {
+            transfer::public_transfer(pay, ctx.sender());
+        };
     }
 }

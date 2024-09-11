@@ -14,19 +14,11 @@ module ran_dir_shoot_game::rainbow {
 
     // ====== function ======
 
-    entry fun pay_to_rainbow(income: &mut Income, mut pay: Coin<SUI>, ctx: &mut TxContext) {
+    entry fun pay_to_rainbow(income: &mut Income, pay: Coin<SUI>, ctx: &mut TxContext) {
         // check sui
         assert!(pay.value() >= NeedBalance, ENotEnoughSUI);
 
         // income store
-        let need = pay.split(NeedBalance, ctx).into_balance();
-        income.join(need);
-
-        // deal with the remain pay
-        if (pay.value() == 0) {
-            pay.destroy_zero();
-        } else {
-            transfer::public_transfer(pay, ctx.sender());
-        };
+        income.join(pay, ctx);
     }
 }
