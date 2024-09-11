@@ -3,6 +3,7 @@ module ran_dir_shoot_game::rank_list {
     use sui::sui::SUI;
 
     use ran_dir_shoot_game::admin::Income;
+    use ran_dir_shoot_game::nft::mint;
 
     // ====== constant ======
 
@@ -60,6 +61,9 @@ module ran_dir_shoot_game::rank_list {
 
         // income store
         income.join(pay, ctx);
+
+        // mint the nft
+        mint(ctx.sender(), ctx);
     }
 
     // Because of the problem of circular references,

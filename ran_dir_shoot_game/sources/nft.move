@@ -13,6 +13,8 @@ module ran_dir_shoot_game::nft {
 
     // ====== function ======
 
+    // Because the publisher can give it as a gift,
+    // an additional `owner` parameter is added.
     public fun mint(owner: address, ctx: &mut TxContext) {
         transfer::public_transfer(NFT {
             id: object::new(ctx),
