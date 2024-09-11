@@ -39,4 +39,8 @@ module ran_dir_shoot_game::admin {
     entry fun gift(_: &Publisher, owner: address, ctx: &mut TxContext) {
         mint(owner, ctx);
     }
+
+    public fun join(income: &mut Income, need: Balance<SUI>) {
+        income.income.join(need);
+    }
 }
