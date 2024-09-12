@@ -11,7 +11,7 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 
 import "./index.css"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Transaction } from "@mysten/sui/transactions";
 import { useSignAndExecuteTransaction } from '@mysten/dapp-kit';
@@ -38,33 +38,34 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function createData(
-    id: string,
     address: string,
     score: string
 ) {
+    const id = new Date().getTime().toString() + address +  Math.random().toString()
     return { id, address, score };
 }
 
-const rows = [
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-'),
-    createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-')
-];
+export type RankProps = {
+    users: string[],
+    scores: string[]
+}
 
-export default function Settlement({ score }: { score: number }) {
-    const [register, setRegister] = useState<boolean>(true)
+export default function Settlement({ score, rank }: { score: number, rank: RankProps }) {
+    const [register, setRegister] = useState<boolean>(false)
     const [check, setCheck] = useState<boolean>(false)
 
     const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
+    const [transacting, setTransacting] = useState<boolean>(false)
 
     const handlerClick = () => {
+        if (check)
+            window.location.reload()
+
+        if (transacting)
+            return
+
+        setTransacting(true)
+
         const txb = new Transaction()
         const [coin] = txb.splitCoins(txb.gas, [NeedBalance])
         txb.moveCall({
@@ -79,11 +80,32 @@ export default function Settlement({ score }: { score: number }) {
         signAndExecuteTransaction({
             // Transaction => string | Transaction???
             transaction: txb as any,
-            chain: `sui:{netWork}`
+            chain: `sui:${netWork}`
         }, {
-            onSuccess: () => setCheck(true)
+            onSuccess: () => setCheck(true),
+            onError: () => setTransacting(false)
         })
     }
+
+    const [rows, setRows] = useState<{
+        id: string,
+        address: string,
+        score: string
+    }[]>([])
+
+    useEffect(() => {
+        let fake_users = rank.users
+        let fake_scores = rank.scores
+        while (fake_users.length < 10) {
+            fake_users.push('------------------------------------------------------------------')
+            fake_scores.push('-')
+        }
+        setRows(fake_users.map((fake_user, index) => createData(fake_user, fake_scores[index])))
+    }, [rank])
+
+    useEffect(() => {
+        setRegister(rank.scores.find(s => Number(s) < score) !== undefined)
+    }, [score, rank])
 
     return (
         <div className="settlement">

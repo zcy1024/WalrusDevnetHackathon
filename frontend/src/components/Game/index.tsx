@@ -4,7 +4,7 @@ import "./index.css"
 
 import Bullet from "./Bullet"
 import Enemy, { EnemyGroupType } from "./Enemy"
-import Settlement from "./Settlement"
+import Settlement, { RankProps } from "./Settlement"
 
 import { useSuiClientQuery } from "@mysten/dapp-kit"
 import { RankList } from "../ids"
@@ -65,16 +65,28 @@ export default function Game() {
     const [gameOver, setGameOver] = useState<boolean>(false)
 
     // get rank list
-    // const { data } = useSuiClientQuery("getObject", {
-    //     id: RankList,
-    //     options: {
-    //         showContent: true
-    //     }
-    // })
+    const { refetch } = useSuiClientQuery("getObject", {
+        id: RankList,
+        options: {
+            showContent: true
+        }
+    })
 
-    const updateGameOver = () => {
+    // rank
+    const [rank, setRank] = useState<RankProps>({
+        users: [],
+        scores: []
+    })
+
+    const updateGameOver = async () => {
         setGameOver(true)
         document.removeEventListener("keydown", movePlayer, false)
+        // data: any => can't read fields???
+        const { data }: { data: any } =  await refetch()
+        setRank({
+            users: data?.data?.content.fields.user,
+            scores: data?.data?.content.fields.rank
+        })
     }
 
     return (
@@ -82,7 +94,7 @@ export default function Game() {
             <div className="circle" style={{height: "6vh", width: "6vh", left: `${initPos.x}vw`, top: `${initPos.y}vh`}} ref={playerRef}></div>
             { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"} enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} updateScore={updateScore} updateGameOver={updateGameOver} /> }
             { ready && <Enemy enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} playerPos={initPos} />}
-            { gameOver && <Settlement score={score} /> }
+            { gameOver && <Settlement score={score} rank={rank} /> }
         </div>
     )
 }
