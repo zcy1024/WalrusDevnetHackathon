@@ -110,7 +110,7 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
     }, [rank])
 
     useEffect(() => {
-        setRegister(rank.scores.length === 0 || rank.scores.find(s => Number(s) < score) !== undefined)
+        setRegister(rank.scores.length < 10 || rank.scores.find(s => Number(s) < score) !== undefined)
     }, [score, rank])
 
     return (
