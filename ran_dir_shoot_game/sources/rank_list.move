@@ -18,6 +18,7 @@ module ran_dir_shoot_game::rank_list {
 
     public struct RankList has key, store {
         id: UID,
+        user: vector<address>,
         rank: vector<u64>
     }
 
@@ -26,6 +27,7 @@ module ran_dir_shoot_game::rank_list {
     fun init(ctx: &mut TxContext) {
         transfer::share_object(RankList {
             id: object::new(ctx),
+            user: vector<address>[],
             rank: vector<u64>[]
         });
     }
@@ -53,8 +55,11 @@ module ran_dir_shoot_game::rank_list {
         assert!(rankIndex != 111 || rank_list.rank.length() < 10, ENotEnoughScore);
         // update rank list
         if (rankIndex == 111) {
+            rank_list.user.push_back(ctx.sender());
             rank_list.rank.push_back(score);
         } else {
+            rank_list.user.insert(ctx.sender(), rankIndex);
+            rank_list.user.pop_back();
             rank_list.rank.insert(score, rankIndex);
             rank_list.rank.pop_back();
         };
@@ -72,6 +77,7 @@ module ran_dir_shoot_game::rank_list {
     // Perhaps administrative access and revenue storage could be further split?
     entry fun clearRankList(rank_list: &mut RankList) {
         while (rank_list.rank.length() > 0) {
+            rank_list.user.pop_back();
             rank_list.rank.pop_back();
         };
     }

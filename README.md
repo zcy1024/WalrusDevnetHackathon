@@ -1,7 +1,7 @@
 # WalrusDevnetHackathon
 Walrus Devnet Hackathon
 
-testnet version 1
+testnet version 2
 
 ```bash
 ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -9,36 +9,36 @@ testnet version 1
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ Created Objects:                                                                                        │
 │  ┌──                                                                                                    │
-│  │ ObjectID: 0x1ec56bddde978775d7a71003e97f40b8cf0383ff89d536446ad9cbe04de6cce4                         │
-│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
-│  │ ObjectType: 0x2::package::Publisher                                                                  │
-│  │ Version: 48027443                                                                                    │
-│  │ Digest: 2EKye8cfVm9ELFJut3eBPFd3kuutwP9VgqEUm4HUxv5d                                                 │
-│  └──                                                                                                    │
-│  ┌──                                                                                                    │
-│  │ ObjectID: 0x5ed5c52d8242633952c6bb466d3d3fa34606b380e91c06e4148e5255e28b1326                         │
-│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Shared( 48027443 )                                                                            │
-│  │ ObjectType: 0x1e77bd9755c5c5452f1f83219c811a319b32ad2265d17ff5e69f29c119fa5b2e::admin::Income        │
-│  │ Version: 48027443                                                                                    │
-│  │ Digest: 34gfqm2iXV95g1oAreQD6LBvCLFh6KZPGjivoG6ckHeP                                                 │
-│  └──                                                                                                    │
-│  ┌──                                                                                                    │
-│  │ ObjectID: 0x9930c51e6ce45433b0742a25db0ff9961fefceee7ac29083a7cf449d6963e6e4                         │
+│  │ ObjectID: 0x2833d4e415fa3ab691d4160a7f8e605dfa12b3e73d805eead5428fa55907fced                         │
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
 │  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
 │  │ ObjectType: 0x2::package::UpgradeCap                                                                 │
-│  │ Version: 48027443                                                                                    │
-│  │ Digest: E37dJV7iiGnrVYGoaop1dxaJ6t43azq3pLK5ASjb9zdX                                                 │
+│  │ Version: 48027445                                                                                    │
+│  │ Digest: FW5RaWy1AgMiQthdEp2rPNACsJ9CUGdnKN8LjWFqF3G3                                                 │
 │  └──                                                                                                    │
 │  ┌──                                                                                                    │
-│  │ ObjectID: 0xa075d89d19279b50e4a6bdb5f181dedcf4b6a01efe19ac668c42366a4224d22b                         │
+│  │ ObjectID: 0x81ce364dea69af7271c66539ebfffac915dcd53935d33eae1cebc1649766e48d                         │
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Shared( 48027443 )                                                                            │
-│  │ ObjectType: 0x1e77bd9755c5c5452f1f83219c811a319b32ad2265d17ff5e69f29c119fa5b2e::rank_list::RankList  │
-│  │ Version: 48027443                                                                                    │
-│  │ Digest: J6fqJgzUNiZHCwyJRFWJwgd9k46fWUWKssGy79zXrfdH                                                 │
+│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
+│  │ ObjectType: 0x2::package::Publisher                                                                  │
+│  │ Version: 48027445                                                                                    │
+│  │ Digest: C39Q52eCfve4mwz669jKdz3edKU7BWZiRoYde1Z5BN1V                                                 │
+│  └──                                                                                                    │
+│  ┌──                                                                                                    │
+│  │ ObjectID: 0xab42f57b5a78014ec50ba3277a082778493b44af2db920c1f6bada1209497d5c                         │
+│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
+│  │ Owner: Shared( 48027445 )                                                                            │
+│  │ ObjectType: 0x48bdfe3fcbed4dfe6e171f273fc38e412a9fc8470c997afe92e90a93b89d72e5::admin::Income        │
+│  │ Version: 48027445                                                                                    │
+│  │ Digest: EwdW6poC5wps28t6GoHAJR3ngPRzrsvVDt3Sz6nQwVna                                                 │
+│  └──                                                                                                    │
+│  ┌──                                                                                                    │
+│  │ ObjectID: 0xbd12e667d9b4ff804fc434aa35cba9790b1a19ec30d9b73a52c556687471bd35                         │
+│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
+│  │ Owner: Shared( 48027445 )                                                                            │
+│  │ ObjectType: 0x48bdfe3fcbed4dfe6e171f273fc38e412a9fc8470c997afe92e90a93b89d72e5::rank_list::RankList  │
+│  │ Version: 48027445                                                                                    │
+│  │ Digest: 63wvSujVyBVJqhev8dzg1PmpSvvq3pN8npPCgUGMu7Mu                                                 │
 │  └──                                                                                                    │
 │ Mutated Objects:                                                                                        │
 │  ┌──                                                                                                    │
@@ -46,14 +46,14 @@ testnet version 1
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
 │  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
 │  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                           │
-│  │ Version: 48027443                                                                                    │
-│  │ Digest: xE8eTRhpo75cVToJHQUErfPJqbVjLdaoxMiwVMerhWx                                                  │
+│  │ Version: 48027445                                                                                    │
+│  │ Digest: 8CMRpLbXpB8XXWJnmeWLXDBGcyNqn9JHBBxEmrAoqcr7                                                 │
 │  └──                                                                                                    │
 │ Published Objects:                                                                                      │
 │  ┌──                                                                                                    │
-│  │ PackageID: 0x1e77bd9755c5c5452f1f83219c811a319b32ad2265d17ff5e69f29c119fa5b2e                        │
+│  │ PackageID: 0x48bdfe3fcbed4dfe6e171f273fc38e412a9fc8470c997afe92e90a93b89d72e5                        │
 │  │ Version: 1                                                                                           │
-│  │ Digest: AhKtfXsK6LGeU321JpGPusogLwopEygY4oc12bgCMP7G                                                 │
+│  │ Digest: CHc67NT5PFNqLCdV9Xmc56btJckHPoqCPuyAkVZPjNHh                                                 │
 │  │ Modules: admin, nft, rainbow, rank_list                                                              │
 │  └──                                                                                                    │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
