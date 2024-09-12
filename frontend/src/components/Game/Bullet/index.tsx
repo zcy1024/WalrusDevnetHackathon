@@ -25,7 +25,7 @@ type bulletItem = {
 
 // bullets
 let bullets: bulletItem[] = []
-let clip = 10
+let clip = 100
 
 export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore, updateGameOver }: Props) {
     const bulletRef = useRef<HTMLDivElement | null>(null)

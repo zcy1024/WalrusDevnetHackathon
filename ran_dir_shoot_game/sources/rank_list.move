@@ -59,9 +59,11 @@ module ran_dir_shoot_game::rank_list {
             rank_list.rank.push_back(score);
         } else {
             rank_list.user.insert(ctx.sender(), rankIndex);
-            rank_list.user.pop_back();
             rank_list.rank.insert(score, rankIndex);
-            rank_list.rank.pop_back();
+            if (rank_list.rank.length() > 10) {
+                rank_list.user.pop_back();
+                rank_list.rank.pop_back();
+            }
         };
 
         // income store

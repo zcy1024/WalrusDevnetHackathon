@@ -14,7 +14,7 @@ import "./index.css"
 import { useEffect, useState } from 'react';
 
 import { Transaction } from "@mysten/sui/transactions";
-import { useSignAndExecuteTransaction } from '@mysten/dapp-kit';
+import { useCurrentAccount, useSignAndExecuteTransaction } from '@mysten/dapp-kit';
 import { Income, NeedBalance, netWork, PackageID, RankList } from '../../ids';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -93,12 +93,18 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
         score: string
     }[]>([])
 
+    const account = useCurrentAccount()
+
     useEffect(() => {
         let fake_users = rank.users
         let fake_scores = rank.scores
         while (fake_users.length < 10) {
             fake_users.push('------------------------------------------------------------------')
             fake_scores.push('-')
+        }
+        if (account) {
+            fake_users.push(account.address + "(You)")
+            fake_scores.push(score.toString())
         }
         setRows(fake_users.map((fake_user, index) => createData(fake_user, fake_scores[index])))
     }, [rank])
