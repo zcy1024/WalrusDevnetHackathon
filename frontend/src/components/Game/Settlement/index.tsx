@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 
 import { Transaction } from "@mysten/sui/transactions";
 import { useCurrentAccount, useSignAndExecuteTransaction } from '@mysten/dapp-kit';
-import { Income, NeedBalance, netWork, PackageID, RankList } from '../../ids';
+import { Income, NeedBalance, NetWork, PackageID, RankList } from '../../ids';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -80,7 +80,7 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
         signAndExecuteTransaction({
             // Transaction => string | Transaction???
             transaction: txb as any,
-            chain: `sui:${netWork}`
+            chain: `sui:${NetWork}`
         }, {
             onSuccess: () => setCheck(true),
             onError: () => setTransacting(false)
