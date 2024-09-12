@@ -6,6 +6,9 @@ import Bullet from "./Bullet"
 import Enemy, { EnemyGroupType } from "./Enemy"
 import Settlement from "./Settlement"
 
+import { useSuiClientQuery } from "@mysten/dapp-kit"
+import { RankList } from "../ids"
+
 export default function Game() {
     const playerRef = useRef<HTMLDivElement | null>(null)
 
@@ -60,6 +63,15 @@ export default function Game() {
 
     // check gameover
     const [gameOver, setGameOver] = useState<boolean>(false)
+
+    // get rank list
+    // const { data } = useSuiClientQuery("getObject", {
+    //     id: RankList,
+    //     options: {
+    //         showContent: true
+    //     }
+    // })
+
     const updateGameOver = () => {
         setGameOver(true)
         document.removeEventListener("keydown", movePlayer, false)
@@ -70,7 +82,7 @@ export default function Game() {
             <div className="circle" style={{height: "6vh", width: "6vh", left: `${initPos.x}vw`, top: `${initPos.y}vh`}} ref={playerRef}></div>
             { ready && <Bullet left={initPos.x + "vw"} top={initPos.y + "vh"} enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} updateScore={updateScore} updateGameOver={updateGameOver} /> }
             { ready && <Enemy enemyGroup={enemyGroup} setEnemyGroup={setEnemyGroup} playerPos={initPos} />}
-            { gameOver && <Settlement /> }
+            { gameOver && <Settlement score={score} /> }
         </div>
     )
 }

@@ -13,6 +13,10 @@ import AlertTitle from '@mui/material/AlertTitle';
 import "./index.css"
 import { useState } from 'react';
 
+import { Transaction } from "@mysten/sui/transactions";
+import { useSignAndExecuteTransaction } from '@mysten/dapp-kit';
+import { Income, NeedBalance, netWork, PackageID, RankList } from '../../ids';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -54,12 +58,31 @@ const rows = [
     createData(new Date().getTime().toString() + 'Address' + Math.random().toString(), '------------------------------------------------------------------', '-')
 ];
 
-export default function Settlement() {
+export default function Settlement({ score }: { score: number }) {
     const [register, setRegister] = useState<boolean>(true)
     const [check, setCheck] = useState<boolean>(false)
 
+    const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
+
     const handlerClick = () => {
-        setCheck(true)
+        const txb = new Transaction()
+        const [coin] = txb.splitCoins(txb.gas, [NeedBalance])
+        txb.moveCall({
+            target: `${PackageID}::rank_list::updateRankList`,
+            arguments: [
+                txb.object(RankList),
+                txb.pure.u64(score),
+                coin,
+                txb.object(Income)
+            ]
+        })
+        signAndExecuteTransaction({
+            // Transaction => string | Transaction???
+            transaction: txb as any,
+            chain: `sui:{netWork}`
+        }, {
+            onSuccess: () => setCheck(true)
+        })
     }
 
     return (
@@ -84,8 +107,8 @@ export default function Settlement() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            { register && <Button color='success' onClick={handlerClick}>List registration</Button> }
-            <Alert severity="success" sx={{visibility: `${check ? "visible" : "hidden"}`}}>
+            {register && <Button color='success' onClick={handlerClick}>List registration</Button>}
+            <Alert severity="success" sx={{ visibility: `${check ? "visible" : "hidden"}` }}>
                 <AlertTitle align='left'>Success</AlertTitle>
                 The list registration is successful and you will receive a digital collection!
             </Alert>

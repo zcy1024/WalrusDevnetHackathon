@@ -25,7 +25,7 @@ type bulletItem = {
 
 // bullets
 let bullets: bulletItem[] = []
-let clip = 100
+let clip = 10
 
 export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore, updateGameOver }: Props) {
     const bulletRef = useRef<HTMLDivElement | null>(null)
@@ -38,7 +38,7 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
     const [ready, setReady] = useState<boolean>(false)
 
     const refresh = async () => {
-        if (ready || clip <= 0)
+        if (ready || clip <= -20)
             return
 
         setReady(true)
@@ -129,7 +129,7 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
 
         if (--clip === 0) {
             // Make sure the bullets disappear as much as possible
-            await sleep(6000)
+            await sleep(4000)
             updateGameOver()
         }
     }
