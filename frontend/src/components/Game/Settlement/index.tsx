@@ -57,6 +57,8 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
     const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
     const [transacting, setTransacting] = useState<boolean>(false)
 
+    const [buttonTip, setButtonTip] = useState<string>("List registration")
+
     const handlerClick = () => {
         if (check)
             window.location.reload()
@@ -82,7 +84,10 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
             transaction: txb as any,
             chain: `sui:${NetWork}`
         }, {
-            onSuccess: () => setCheck(true),
+            onSuccess: () => {
+                setCheck(true)
+                setButtonTip("Refresh and restart the game")
+            },
             onError: () => setTransacting(false)
         })
     }
@@ -135,7 +140,7 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
                     </TableBody>
                 </Table>
             </TableContainer>
-            {register && <Button color='success' onClick={handlerClick}>List registration</Button>}
+            {register && <Button color='success' onClick={handlerClick} sx={{textTransform: !check ? "uppercase" : "capitalize"}}>{buttonTip}</Button>}
             <Alert severity="success" sx={{ visibility: `${check ? "visible" : "hidden"}` }}>
                 <AlertTitle align='left'>Success</AlertTitle>
                 The list registration is successful and you will receive a digital collection!

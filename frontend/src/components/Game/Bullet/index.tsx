@@ -11,7 +11,8 @@ type Props = {
     enemyGroup: EnemyGroupType | null,
     setEnemyGroup: React.Dispatch<React.SetStateAction<EnemyGroupType | null>>,
     updateScore: (s: number) => void,
-    updateGameOver: () => void
+    updateGameOver: () => void,
+    rainbow: boolean
 }
 
 type bulletItem = {
@@ -27,7 +28,28 @@ type bulletItem = {
 let bullets: bulletItem[] = []
 let clip = 100
 
-export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore, updateGameOver }: Props) {
+// colors
+const colorCount = 7
+const colors = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "cyan",
+    "blue",
+    "purple"
+]
+const colorEffect = [
+    3,
+    2,
+    1.2,
+    0.8,
+    0.2,
+    -0.5,
+    -1
+]
+
+export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateScore, updateGameOver, rainbow }: Props) {
     const bulletRef = useRef<HTMLDivElement | null>(null)
 
     const sleep = (ms: number) => {
@@ -44,6 +66,10 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
         setReady(true)
         await sleep(100)
 
+        const randomColor = () => {
+            return colors[Math.round(Math.random() * 7777777) % colorCount]
+        }
+
         if (clip > 0) {
 
             // shoot
@@ -55,7 +81,7 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
             childNode.style.width = "2vh"
             childNode.style.border = "1px solid white"
             childNode.style.borderRadius = "50%"
-            childNode.style.backgroundColor = "gray"
+            childNode.style.backgroundColor = !rainbow ? "gray" : randomColor()
             bulletRef.current?.appendChild(childNode)
 
             bullets.push({
@@ -82,10 +108,15 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
             if (!enemyGroup)
                 return true
 
+            const getRainbowEffect = (target: string) => {
+                const colorIndex = colors.findIndex(color => color === target)
+                return colorIndex >= 0 ? colorEffect[colorIndex] : 1
+            }
+
             const hitEnemy = (enemy: EnemyItem) => {
-                const radius = Number(enemy.enemy.style.width.slice(0, -2)) - 1
-                if (radius < 0)
+                if (Number(enemy.enemy.style.width.slice(0, -2)) < 0)
                     return
+                const radius = Number(enemy.enemy.style.width.slice(0, -2)) - (!rainbow ? 1 : getRainbowEffect(bullet.bullet.style.backgroundColor))
                 if (radius >= 1) {
                     enemy.enemy.style.width = radius.toString() + "vh"
                     enemy.enemy.style.height = radius.toString() + "vh"
@@ -106,8 +137,20 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
                     ...enemyGroup,
                     enemyItems: enemyGroup.enemyItems.filter(e => e !== enemy)
                 })
+
+                const getCoefficient = () => {
+                    const index = colors.findIndex(color => color === bullet.bullet.style.backgroundColor)
+                    if (index === 0)
+                        return 1.5
+                    if (index === 1)
+                        return 1.2
+                    if (index === 2)
+                        return 1.1
+                    return 1
+                }
+
                 try {
-                    updateScore(enemy.score)
+                    updateScore(enemy.score * getCoefficient())
                     enemyGroup.enemyRef.current?.removeChild(enemy.enemy)
                 } catch (error) {
                     // console.log(error)

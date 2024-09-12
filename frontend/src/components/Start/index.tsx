@@ -9,7 +9,7 @@ import { Transaction } from '@mysten/sui/transactions'
 import { useSignAndExecuteTransaction } from '@mysten/dapp-kit'
 import { NeedBalance, PackageID, Income, NetWork } from '../ids'
 
-export default function Start({ setPlay }: {setPlay: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Start({ setPlay, setRainbow }: {setPlay: React.Dispatch<React.SetStateAction<boolean>>, setRainbow: React.Dispatch<React.SetStateAction<boolean>>}) {
     // Checkbox
     const [checked, setChecked] = useState<boolean>(false)
 
@@ -44,7 +44,12 @@ export default function Start({ setPlay }: {setPlay: React.Dispatch<React.SetSta
 
     return (
         <div className="start">
-            <Button endIcon={<SendIcon />} onClick={() => (!paying || checked) && setPlay(true)} >Start Game</Button>
+            <Button endIcon={<SendIcon />} onClick={() => {
+                if (!paying || checked) {
+                    setPlay(true)
+                    setRainbow(paying)
+                }
+            }} >Start Game</Button>
             <br />
             <Checkbox size='small' checked={checked} onChange={handleChange}></Checkbox>
             Pay to turn on Rainbow Mode
