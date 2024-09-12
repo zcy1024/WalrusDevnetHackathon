@@ -37,35 +37,38 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
     // check bullet is ready
     const [ready, setReady] = useState<boolean>(false)
 
-    const refresh = async() => {
+    const refresh = async () => {
         if (ready || clip <= 0)
             return
 
         setReady(true)
         await sleep(100)
 
-        // shoot
-        const childNode = document.createElement("div")
-        childNode.style.position = "absolute"
-        childNode.style.left = left
-        childNode.style.top = top
-        childNode.style.height = "2vh"
-        childNode.style.width = "2vh"
-        childNode.style.border = "1px solid white"
-        childNode.style.borderRadius = "50%"
-        childNode.style.backgroundColor = "gray"
-        bulletRef.current?.appendChild(childNode)
+        if (clip > 0) {
 
-        bullets.push({
-            bullet: childNode,
-            st_x: Number(childNode.style.left.slice(0, -2)),
-            st_y: Number(childNode.style.top.slice(0, -2)),
-            x_v: Math.random(),
-            y_v: Math.random(),
-            cre_ms: new Date().getTime()
-        })
+            // shoot
+            const childNode = document.createElement("div")
+            childNode.style.position = "absolute"
+            childNode.style.left = left
+            childNode.style.top = top
+            childNode.style.height = "2vh"
+            childNode.style.width = "2vh"
+            childNode.style.border = "1px solid white"
+            childNode.style.borderRadius = "50%"
+            childNode.style.backgroundColor = "gray"
+            bulletRef.current?.appendChild(childNode)
 
-        await sleep(100)
+            bullets.push({
+                bullet: childNode,
+                st_x: Number(childNode.style.left.slice(0, -2)),
+                st_y: Number(childNode.style.top.slice(0, -2)),
+                x_v: Math.random(),
+                y_v: Math.random(),
+                cre_ms: new Date().getTime()
+            })
+
+            await sleep(100)
+        }
 
         bullets = bullets.filter(bullet => {
             const x = Number(bullet.bullet.style.left.slice(0, -2))
@@ -107,7 +110,7 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
                     updateScore(enemy.score)
                     enemyGroup.enemyRef.current?.removeChild(enemy.enemy)
                 } catch (error) {
-                    console.log(error)
+                    // console.log(error)
                 }
             }
 
@@ -123,9 +126,12 @@ export default function Bullet({ left, top, enemyGroup, setEnemyGroup, updateSco
 
         await sleep(100)
         setReady(false)
-        
-        if (--clip === 0)
+
+        if (--clip === 0) {
+            // Make sure the bullets disappear as much as possible
+            await sleep(6000)
             updateGameOver()
+        }
     }
 
     useEffect(() => {
