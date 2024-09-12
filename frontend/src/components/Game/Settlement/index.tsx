@@ -96,8 +96,8 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
     const account = useCurrentAccount()
 
     useEffect(() => {
-        let fake_users = rank.users
-        let fake_scores = rank.scores
+        let fake_users = [...rank.users]
+        let fake_scores = [...rank.scores]
         while (fake_users.length < 10) {
             fake_users.push('------------------------------------------------------------------')
             fake_scores.push('-')
@@ -110,7 +110,7 @@ export default function Settlement({ score, rank }: { score: number, rank: RankP
     }, [rank])
 
     useEffect(() => {
-        setRegister(rank.scores.find(s => Number(s) < score) !== undefined)
+        setRegister(rank.scores.length === 0 || rank.scores.find(s => Number(s) < score) !== undefined)
     }, [score, rank])
 
     return (
