@@ -1,7 +1,60 @@
 # WalrusDevnetHackathon
 Walrus Devnet Hackathon
 
-testnet version 3
+# Things to note
+
+Please set the wallet you want to use to the testnet in advance.
+
+This is a small achievement of personal learning and development， which is still many imperfections in it, please forgive me.
+
+If you find someone maliciously brushing the rankings, you can use `sui client call --package $PACKAGE --module rank_list --function clearRankList --args $RANKLIST` to reset the rankings.(`$PACKAGE, $RANKLIST` can be obtained at the end of the article.)
+
+# How to play
+
+## online
+
+Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/3ZqMirvxVQJbHjd1JhnsuiQzDXpJb8T3wbR5ZVZT6Z3y), we can play it on the website: https://3bkzzodr9nbikqurtommif4gk34v0wr1d101bs6ri9fvx68kw.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
+
+More infomation for the `Walrus`, please click [this](https://docs.walrus.site/index.html) to learn.
+
+If you have trouble publishing `Walrus`, you can try using the [website](https://59m3rsq2r237hak3yzhy3ga1df9t04y17c2ppbpp69uiqtc7pa.walrus.site/) submission method.(Special thanks to the group for providing this method)
+
+## local
+
+Of course, you can also run this project locally. (If subsequent `Walrus` version updates or `SuiNS` expires and the above URL becomes unavailable, please also read below)
+But please note that no matter which way, if you want to have a better experience, you need to have `Sui Wallet`.
+
+```bash
+cd ran_dir_shoot_game
+pnpm install
+pnpm run dev
+```
+
+In the worst case, the reset of `Sui testnet` makes the published `Sui Object` invalid, so please publish it yourself and update the relevant information in `frontend/src/components/ids.ts` before use.
+
+# Game rules
+
+## normal mode
+
+`W/A/S/D` or `Arrow keys` to move.
+
+Fire bullets randomly.
+
+Points are scored based on the initial radius of enemies destroyed.
+
+After 100 bullets, the score will be settled.
+
+If your score can be on the list (top ten), you can choose to pay a certain amount to update the list and get a unique NFT collection at the same time.
+
+## rainbow mode
+
+Your bullets will be of random colors, and bullets of different colors have different effects.
+
+When you give a fatal blow, your score may increase significantly.
+
+It is worth noting that you need to pay a certain amount in advance to enable rainbow mode.
+
+# Sui Move testnet version 3
 
 ```bash
 ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────╮
