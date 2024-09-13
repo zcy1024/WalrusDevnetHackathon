@@ -20,7 +20,8 @@ module ran_dir_shoot_game::nft {
             id: object::new(ctx),
             name: string::utf8(b"HuangFengDaSheng"),
             description: string::utf8(b"The final boss of the second chapter of Black Myth Wukong has won praise from the majority of netizens for its rich character creation. This is hereby awarded to reward players who have made the list!"),
-            url: url::new_unsafe_from_bytes(b"https://github.com/zcy1024/WalrusDevnetHackathon/blob/main/ran_dir_shoot_game/imgs/HuangFengDaSheng.png?raw=true")
+            // url: url::new_unsafe_from_bytes(b"https://github.com/zcy1024/WalrusDevnetHackathon/blob/main/ran_dir_shoot_game/imgs/HuangFengDaSheng.png?raw=true")
+            url: url::new_unsafe_from_bytes(b"https://aggregator-devnet.walrus.space/v1/74bzm4Mi8AsTw0n4sKSVzPkuGphgsJkSTcgVpvKj0Rs")
         }, owner);
     }
 }

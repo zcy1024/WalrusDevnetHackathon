@@ -1,6 +1,6 @@
 export const NetWork = "testnet"
 export const NeedBalance = 666666
-export const PackageID = "0x5cb99ccf8189a064f18382eb255e0ed80657dec3759707f60238bf32e3a6aa91"
-export const Publisher = "0x6755eb0ea22fc9a56b77b3eccb60a0273ab58fb5d984b7fed16a607fdb51832e"
-export const Income = "0x15c4e20ec78a3d9f1793ebcbb65f47a1eec1e364399d93b1873040e00a6528b0"
-export const RankList = "0x8041e0b5e8b24a189cd366b2e855c93a6f15dbdd8755068097fa2ca81e4381ab"
+export const PackageID = "0xf8a68bda0000f7f5d4542d98e180fb6b6b9878817b18e184ab1c81723298883f"
+export const Publisher = "0x2cff394af947bdf150883598ee463742a31cd7ef30645aa050da834b996605b4"
+export const Income = "0x8b542d1f1860f32185c1bea6abed180ee83a6bb852e5a50f04914cc8c88608d6"
+export const RankList = "0xe19b7655ed7bc03708d8c8bafc369447f1b969656a078e45a57afa1a847579b6"
