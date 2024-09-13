@@ -5,7 +5,7 @@ Walrus Devnet Hackathon
 
 Please set the wallet you want to use to the testnet in advance.
 
-This is a small achievement of personal learning and development， which is still many imperfections in it, please forgive me.
+This is a small achievement of personal learning and development，which is still many imperfections in it, please forgive me.
 
 If you find someone maliciously brushing the rankings, you can use `sui client call --package $PACKAGE --module rank_list --function clearRankList --args $RANKLIST` to reset the rankings.(`$PACKAGE, $RANKLIST` can be obtained at the end of the article.)
 
@@ -21,7 +21,7 @@ If you have trouble publishing `Walrus`, you can try using the [website](https:/
 
 ## local
 
-Of course, you can also run this project locally. (If subsequent `Walrus` version updates or `SuiNS` expires and the above URL becomes unavailable, please also read below)
+Of course, you can also run this project locally. (If subsequent `Walrus` version updates or `SuiNS` expires and the above URL becomes unavailable, please also read below)<br>
 But please note that no matter which way, if you want to have a better experience, you need to have `Sui Wallet`.
 
 ```bash
