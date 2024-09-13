@@ -13,7 +13,7 @@ If you find someone maliciously brushing the rankings, you can use `sui client c
 
 ## online
 
-Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/3ZqMirvxVQJbHjd1JhnsuiQzDXpJb8T3wbR5ZVZT6Z3y), we can play it on the website: https://3bkzzodr9nbikqurtommif4gk34v0wr1d101bs6ri9fvx68kw.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
+Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/7SALAZecn1H85tWGyEhaW9WgWAQKjzZ5VgurawyLDTqe), we can play it on the website: https://4fnq4oi6tusfdm7auq7sr06du7zbbh4n0us1sjq5ysmrbvjsvq.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
 
 More infomation for the `Walrus`, please click [this](https://docs.walrus.site/index.html) to learn.
 
