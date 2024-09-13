@@ -44,7 +44,7 @@ Points are scored based on the initial radius of enemies destroyed.
 
 After 100 bullets, the score will be settled.
 
-If your score can be on the list (top ten), you can choose to pay a certain amount to update the list and get a unique NFT collection at the same time.
+If your score can be on the list (top ten), you can choose to pay a certain amount to update the list and get a unique [NFT](https://suiscan.xyz/testnet/object/0x5a8a4e74d85d32eb794eb2bdab34f12f77852204eea82885270e7fce81829117/txs) collection at the same time.
 
 ## rainbow mode
 
