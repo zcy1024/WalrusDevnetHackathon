@@ -13,7 +13,7 @@ If you find someone maliciously brushing the rankings, you can use `sui client c
 
 ## online
 
-Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/7SALAZecn1H85tWGyEhaW9WgWAQKjzZ5VgurawyLDTqe), we can play it on the website: https://4fnq4oi6tusfdm7auq7sr06du7zbbh4n0us1sjq5ysmrbvjsvq.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
+Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/BPmQftEAE5PtEhyFXUzXE3FkLkvp23X8MryQpg5CWbEv), we can play it on the website: https://5itqp1wxjlzj97eiqd9kjiz29dy9d6nwoay0sh1w7vrhb3b4gq.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
 
 More infomation for the `Walrus`, please click [this](https://docs.walrus.site/index.html) to learn.
 
@@ -55,7 +55,7 @@ When you give a fatal blow, your score may increase significantly.
 
 It is worth noting that you need to pay a certain amount in advance to enable rainbow mode.
 
-# Sui Move testnet version 4
+# Sui Move testnet version 5
 
 ```bash
 ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -63,36 +63,36 @@ It is worth noting that you need to pay a certain amount in advance to enable ra
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ Created Objects:                                                                                        │
 │  ┌──                                                                                                    │
-│  │ ObjectID: 0x2cff394af947bdf150883598ee463742a31cd7ef30645aa050da834b996605b4                         │
+│  │ ObjectID: 0x14c592054f5ee4b8c918abaa3a0fde131d60db3c96cdc8936c441d72c961d64f                         │
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
-│  │ ObjectType: 0x2::package::Publisher                                                                  │
-│  │ Version: 146099965                                                                                   │
-│  │ Digest: 6Aw1diEGUaF1FMphXBnCjZXTZaZhs4arKbsh6R18s1yy                                                 │
+│  │ Owner: Shared( 146332938 )                                                                           │
+│  │ ObjectType: 0x376bb2eac064012f4bc69e5a083693a3f1edfef2287e21f5480b14b9727e432a::rank_list::RankList  │
+│  │ Version: 146332938                                                                                   │
+│  │ Digest: uXm8w5efhT8gNM4KpDdJcMw6RFJJnxL6KZeYU7BURmk                                                  │
 │  └──                                                                                                    │
 │  ┌──                                                                                                    │
-│  │ ObjectID: 0x8b542d1f1860f32185c1bea6abed180ee83a6bb852e5a50f04914cc8c88608d6                         │
-│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Shared( 146099965 )                                                                           │
-│  │ ObjectType: 0xf8a68bda0000f7f5d4542d98e180fb6b6b9878817b18e184ab1c81723298883f::admin::Income        │
-│  │ Version: 146099965                                                                                   │
-│  │ Digest: AgYYgW9xPnP3Hk6ZDkwgrBa92U3KK7ptjN9MvNoXB5xB                                                 │
-│  └──                                                                                                    │
-│  ┌──                                                                                                    │
-│  │ ObjectID: 0x9a3e788c124902cea65b0183f30ec29fe98471c36fb67787f639d3807f2d01a2                         │
+│  │ ObjectID: 0x9facd448c318704e052f8f54dcc948694cc1921803106bb1e2961b58cbb2cac7                         │
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
 │  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
 │  │ ObjectType: 0x2::package::UpgradeCap                                                                 │
-│  │ Version: 146099965                                                                                   │
-│  │ Digest: LGxAmS5F9T4zADvgz7DMUxCd7YuEpcCU6srdE6SuazL                                                  │
+│  │ Version: 146332938                                                                                   │
+│  │ Digest: EN8iVUowg1aKcThxMop3vqLTn12gzdy3zzRszXGiQgYp                                                 │
 │  └──                                                                                                    │
 │  ┌──                                                                                                    │
-│  │ ObjectID: 0xe19b7655ed7bc03708d8c8bafc369447f1b969656a078e45a57afa1a847579b6                         │
+│  │ ObjectID: 0xa8cc284f2e110bed4f19ca63752c5ba5f097fc929ea17b3241ea0a6964ddf5bd                         │
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
-│  │ Owner: Shared( 146099965 )                                                                           │
-│  │ ObjectType: 0xf8a68bda0000f7f5d4542d98e180fb6b6b9878817b18e184ab1c81723298883f::rank_list::RankList  │
-│  │ Version: 146099965                                                                                   │
-│  │ Digest: VGvFgQv9pqmDzm8p4WPvFzdtMGAZrD3oYo8FV4etKn7                                                  │
+│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
+│  │ ObjectType: 0x2::package::Publisher                                                                  │
+│  │ Version: 146332938                                                                                   │
+│  │ Digest: DdyG6nCjGqv7ugNz4Y1kDWiMsqmKEYnuu4twXEAiAuM2                                                 │
+│  └──                                                                                                    │
+│  ┌──                                                                                                    │
+│  │ ObjectID: 0xc554f6f828091cc0ce50ac49061c502b4a258a95865cdf668abe563b5766d37b                         │
+│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
+│  │ Owner: Shared( 146332938 )                                                                           │
+│  │ ObjectType: 0x376bb2eac064012f4bc69e5a083693a3f1edfef2287e21f5480b14b9727e432a::admin::Income        │
+│  │ Version: 146332938                                                                                   │
+│  │ Digest: FmjYBM2aY9627BfU1NKAYxWoAbsCJTfw4YJxC4BjnEW7                                                 │
 │  └──                                                                                                    │
 │ Mutated Objects:                                                                                        │
 │  ┌──                                                                                                    │
@@ -100,14 +100,14 @@ It is worth noting that you need to pay a certain amount in advance to enable ra
 │  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                           │
 │  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 )        │
 │  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                           │
-│  │ Version: 146099965                                                                                   │
-│  │ Digest: EHXHD7t8iC6HDk1WAaJaMB28DDynBvCfhf1CEKyqmB2b                                                 │
+│  │ Version: 146332938                                                                                   │
+│  │ Digest: 7akSiHtoMnT59PmdeBQrTzeuP5ts3chCJuBdeXqP3vr9                                                 │
 │  └──                                                                                                    │
 │ Published Objects:                                                                                      │
 │  ┌──                                                                                                    │
-│  │ PackageID: 0xf8a68bda0000f7f5d4542d98e180fb6b6b9878817b18e184ab1c81723298883f                        │
+│  │ PackageID: 0x376bb2eac064012f4bc69e5a083693a3f1edfef2287e21f5480b14b9727e432a                        │
 │  │ Version: 1                                                                                           │
-│  │ Digest: 66jSKtVSXDUSNJ65UJ8UDFLKomHwExyWy2V6QqLEzAzC                                                 │
+│  │ Digest: 8grL6fNZKcCf5gFcnrQntdS9NN39kTAjJeh9Qfv4JJFv                                                 │
 │  │ Modules: admin, nft, rainbow, rank_list                                                              │
 │  └──                                                                                                    │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
