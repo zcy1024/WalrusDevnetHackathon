@@ -13,11 +13,11 @@ If you find someone maliciously brushing the rankings, you can use `sui client c
 
 ## online
 
-Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/BPmQftEAE5PtEhyFXUzXE3FkLkvp23X8MryQpg5CWbEv), we can play it on the website: https://5itqp1wxjlzj97eiqd9kjiz29dy9d6nwoay0sh1w7vrhb3b4gq.walrus.site/ or https://zcy1024-walrusdevnethackathon.walrus.site/
+Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/DdmFjMqJvX31V3gjgYRwdMgi3tbuYUaooXhKFdbHAsmG), we can play it on the website: https://2m61i55bhg5zrbtk8148vzu76f9u0su5q2ahwj5wy4iqkq323x.walrus.site or https://zcy1024-walrusdevnethackathon.walrus.site/
 
 More infomation for the `Walrus`, please click [this](https://docs.walrus.site/index.html) to learn.
 
-If you have trouble publishing `Walrus`, you can try using the [website](https://59m3rsq2r237hak3yzhy3ga1df9t04y17c2ppbpp69uiqtc7pa.walrus.site/) submission method.(Special thanks to the group for providing this method)
+Demo video: https://aggregator.walrus-testnet.walrus.space/v1/lzHY6gnFLr3ZhLraFELutYNEso6GczYPyGWzdJTUQ3w and then open it with mp4 as the suffix.
 
 ## local
 
@@ -111,4 +111,34 @@ It is worth noting that you need to pay a certain amount in advance to enable ra
 │  │ Modules: admin, nft, rainbow, rank_list                                                              │
 │  └──                                                                                                    │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+# update:
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Object Changes                                                                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Mutated Objects:                                                                                 │
+│  ┌──                                                                                             │
+│  │ ObjectID: 0x010197a08408a9f3bd34782ae3bb45c8c5e72b1d8e2e4c7794f417b4a429c3dc                  │
+│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                    │
+│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 ) │
+│  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                    │
+│  │ Version: 186215039                                                                            │
+│  │ Digest: G1Lh2mdWe93XWEywchPdSrePEUfqpNEemwB255fVcaR5                                          │
+│  └──                                                                                             │
+│  ┌──                                                                                             │
+│  │ ObjectID: 0x9facd448c318704e052f8f54dcc948694cc1921803106bb1e2961b58cbb2cac7                  │
+│  │ Sender: 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67                    │
+│  │ Owner: Account Address ( 0x9e4092b6a894e6b168aa1c6c009f5c1c1fcb83fb95e5aa39144e1d2be4ee0d67 ) │
+│  │ ObjectType: 0x2::package::UpgradeCap                                                          │
+│  │ Version: 186215039                                                                            │
+│  │ Digest: 8SEbAvpUMXhEisfgnmn7Z9FGg7gVfENfHmhdnkDkybse                                          │
+│  └──                                                                                             │
+│ Published Objects:                                                                               │
+│  ┌──                                                                                             │
+│  │ PackageID: 0xc6af33722eb24a38b9d819a9ffbcf089ad69a6135dd9848e5a4ff520c2264e74                 │
+│  │ Version: 2                                                                                    │
+│  │ Digest: 35bfmGgJfCjZhHJgpEY8feu46BUU2pXcpqLGDqFCqQPr                                          │
+│  │ Modules: admin, nft, rainbow, rank_list                                                       │
+│  └──                                                                                             │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
