@@ -13,11 +13,11 @@ If you find someone maliciously brushing the rankings, you can use `sui client c
 
 ## online
 
-Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/DdmFjMqJvX31V3gjgYRwdMgi3tbuYUaooXhKFdbHAsmG), we can play it on the website: https://2m61i55bhg5zrbtk8148vzu76f9u0su5q2ahwj5wy4iqkq323x.walrus.site or https://zcy1024-walrusdevnethackathon.walrus.site/
+Thanks to the [`Walrus`](https://suiscan.xyz/testnet/tx/9NtT2FBTqFiWjaSdTDG4Xk43P2rVbJgdwmNSmkdsBTKs), we can play it on the website: https://f7qth1u61nf2e2h0p4k7zbls34v3cpuat456i86vuyey1z5ba.walrus.site or https://zcy1024-walrusdevnethackathon.walrus.site/
 
 More infomation for the `Walrus`, please click [this](https://docs.walrus.site/index.html) to learn.
 
-Demo video: https://aggregator.walrus-testnet.walrus.space/v1/lzHY6gnFLr3ZhLraFELutYNEso6GczYPyGWzdJTUQ3w and then open it with mp4 as the suffix.
+Demo video: https://aggregator.walrus-testnet.walrus.space/v1/blobs/lzHY6gnFLr3ZhLraFELutYNEso6GczYPyGWzdJTUQ3w and then open it with mp4 as the suffix.
 
 ## local
 
